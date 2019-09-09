@@ -1,5 +1,5 @@
 import sys
-for x in range(1, 301):
+def FizzBuzz(x):
     result = []
     if x % 3 == 0:
         result.append("Fizz")
@@ -24,6 +24,29 @@ for x in range(1, 301):
     if x % 17 == 0:
         result.reverse()
     if result:
-        print(str(x) + ": " + "".join(result))
+        result = str(x) + ": " + "".join(result)
     else:
-        print(x)
+        result = x
+    return (result)
+
+
+option = input("Select option 1 for default, or option 2 for an individual number")
+results = []
+print(option)
+if option == "1":
+    for x in range(0, 301):
+        result = FizzBuzz(x)
+        print(result)
+        results.append(result)
+if option == "2":
+    x = input("Enter integer for calculation")
+    try:
+        x = int(x)
+    except ValueError:
+        print("Please enter an integer")
+        sys.exit()
+    result = FizzBuzz(x)
+    print(result)
+else:
+    print("Please enter '1' or '2'")
+    sys.exit()
